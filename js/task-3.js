@@ -9,13 +9,16 @@ class StringBuilder {
   }
 
   padStart(str) {
-    this.#value.padStart(this.#value.length + str.length, str);
-  }
-  padEnd(str) {
-    this.#value.padEnd(this.#value.length + str.length, str);
+    this.#value = str + this.#value;
   }
 
-  padBoth(str) {}
+  padEnd(str) {
+    this.#value += str;
+  }
+
+  padBoth(str) {
+    this.#value = str + this.#value + str;
+  }
 }
 
 const builder = new StringBuilder(".");
